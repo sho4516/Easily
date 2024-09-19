@@ -1,0 +1,17 @@
+{
+  "name": "jobportal",
+  "version": "1.0.0",
+  "description": "A job portal that enables recruiters to post/edit/delete jobs and job seekers to apply for a job",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shobhit Goyal",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "type": "module"
+}

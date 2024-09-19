@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easily</title>
+    <link rel="stylesheet" type="text/css" href="/css/layout.css" />
+    <% if (typeof pageCSS !== 'undefined') { %>
+    <link rel="stylesheet" type="text/css" href="<%= pageCSS %>" />
+    <% } %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="nav-items">
+          <ul>
+            <li><a class="brand-name" href="#">easily</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="#">Recruiter</a></li>
+          </ul>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="Search" />
+          <button>Search</button>
+        </div>
+      </nav>
+    </header>
+    <div class="container"><%-body%></div>
+  </body>
+</html>

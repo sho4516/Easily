@@ -1,0 +1,200 @@
+/* .index-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a164d;
+  background-image: url("/images/IMG_1513.png");
+  background-repeat: no-repeat;
+  background-position-x: 80%;
+  background-position-y: -1%;
+}
+
+.heading-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 40rem;
+  height: auto;
+  top: 20%;
+  left: 15%;
+  margin-left: 8px;
+  padding: 8px;
+  gap: 8px;
+}
+
+.heading-box h1 {
+  font-size: xxx-large;
+  color: #fc3696;
+}
+
+.heading-box h2 {
+  font-size: xx-large;
+  color: white;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.heading-box h4 {
+  font-size: larger;
+  color: white;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 8px;
+}
+
+button {
+  padding: 0.5rem;
+  font-size: large;
+  border: none;
+  border-radius: 5px;
+  background-color: #fc3696;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f10577;
+  transition: background-color 0.4s ease-in-out;
+} */
+
+/* Basic styles for all screen sizes */
+.index-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #1a164d;
+  background-image: url("/images/IMG_1513.png");
+  background-repeat: no-repeat;
+  background-position-x: 80%;
+  background-size: 50%; /* Cover the entire area */
+}
+
+.heading-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 100%; /* Make it more fluid */
+  height: auto;
+  top: 20%;
+  left: 10%; /* Responsive padding */
+  padding: 8px;
+  gap: 8px;
+  user-select: none;
+  overflow: hidden;
+}
+
+.heading-box::-webkit-scrollbar- {
+  display: none;
+}
+
+.heading-box h1 {
+  font-size: 2.5rem; /* Fluid font size */
+  color: #fc3696;
+}
+
+.heading-box h2 {
+  font-size: 2rem; /* Fluid font size */
+  color: white;
+  font-weight: 500;
+  padding-bottom: 4px;
+  opacity: 1;
+  animation: textAnimationColorChange 1.5s infinite ease-in-out,
+    textAnimationExpand 1.5s infinite ease-in-out;
+  animation-direction: alternate;
+  z-index: 999;
+}
+
+@keyframes textAnimationColorChange {
+  0% {
+    color: white;
+  }
+  50% {
+    color: #fc3696;
+  }
+  100% {
+    color: #f10577;
+  }
+}
+
+@keyframes textAnimationExpand {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+.heading-box h4 {
+  font-size: 1.2rem; /* Fluid font size */
+  color: white;
+  font-weight: 500;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons on mobile by default */
+  gap: 1rem;
+  margin-top: 18px;
+}
+
+button {
+  padding: 0.5rem;
+  font-size: 1.2rem; /* Fluid font size */
+  border: none;
+  border-radius: 5px;
+  background-color: #fc3696;
+  color: white;
+  cursor: pointer;
+  width: 100%; /* Full-width for mobile */
+  transition: background-color 0.4s ease-in-out;
+}
+
+button:hover {
+  background-color: #f10577;
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* Media Queries for tablet and desktop */
+@media (min-width: 768px) {
+  .heading-box {
+    width: 50%; /* Adjust width for tablets */
+    left: 20%; /* Adjust padding for larger screens */
+  }
+
+  .button-container {
+    flex-direction: row; /* Align buttons in a row */
+  }
+
+  button {
+    width: auto; /* Reset width to auto for larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-box {
+    width: 50%; /* Further adjust for desktop */
+    left: 8%; /* More padding for large screens */
+  }
+
+  .heading-box h1 {
+    font-size: 3rem; /* Larger font on desktops */
+  }
+
+  .heading-box h2 {
+    font-size: 2.5rem; /* Larger font on desktops */
+  }
+
+  .heading-box h4 {
+    font-size: 1.5rem; /* Larger font on desktops */
+  }
+}
