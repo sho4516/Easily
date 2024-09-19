@@ -4,7 +4,8 @@
   "description": "A job portal that enables recruiters to post/edit/delete jobs and job seekers to apply for a job",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "Shobhit Goyal",
   "license": "ISC",

@@ -81,8 +81,8 @@
   background-color: transparent;
   padding: 0.5rem 0.8rem;
   border-radius: 5px;
-  border: 1px solid #223f41;
-  color: #223f41;
+  border: 1px solid #3c758c;
+  color: #3c758c;
   font-size: large;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -90,12 +90,12 @@
 
 .search button:hover {
   color: white;
-  background-color: #223f41;
+  background-color: #3c758c;
   border: 1px solid transparent;
   transition: all 0.5s ease-in-out;
 }
 
 input::placeholder {
-  color: #bbb7b7; /* Change the color to your desired one */
+  color: #aaabc0; /* Change the color to your desired one */
   opacity: 1; /* Ensures that the opacity is fully set */
 }
