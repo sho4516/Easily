@@ -28,6 +28,13 @@ export default class JobModel {
   static getJobs() {
     return jobs;
   }
+
+  static getJobById(id) {
+    const job = jobs.find((j) => {
+      return j.id == Number(id);
+    });
+    return job;
+  }
 }
 
 var jobs = [
@@ -45,7 +52,7 @@ var jobs = [
     4
   ),
   new JobModel(
-    1,
+    2,
     "Tech",
     "SDE",
     "Pune",
@@ -75,17 +82,14 @@ var jobs = [
     4
   ),
   new JobModel(
-    1,
+    3,
     "Tech",
     "SDE",
     "Pune",
     "Coding Ninjas",
     "14-18 LPA",
     "2 Oct",
-    [
-      "NodeJs",
-      "React",
-    ],
+    ["NodeJs", "React"],
     5,
     "today",
     4

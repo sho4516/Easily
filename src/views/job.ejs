@@ -1,0 +1,36 @@
+<div class="job-container">
+  <div class="job-details-container">
+    <div class="header-image-container">
+      <img src="/images/job-portal-banner.jpg" alt="hiring" />
+    </div>
+    <div class="job-title-container">
+      <h1>
+        <span id="jobDesignation"><%= job.jobDesignation %></span>
+        <span id="jobLocation">opportunity in <%= job.jobLocation %> at</span>
+        <span id="companyName"><%= job.companyName %></span>
+      </h1>
+    </div>
+    <div class="job-company-name-container">
+        <h3 style="color: #989396;"><%=job.companyName%></h3>
+        <h4 style="color: #b7bbb7;"><%=job.jobDesignation%></h3>
+    </div>
+    <div class="job-company-details-container">
+        <h4><i style="color: black;" class="fa-solid fa-location-dot"></i> <%=job.jobLocation%></h4>
+        <h4><i style="color: black;" class="fa-solid fa-indian-rupee-sign"></i> <%=job.salary%></h4>
+        <h4><i style="color: black;" class="fa-solid fa-hourglass-end"></i> Apply by: <%=job.applyBy%></h4>
+        <h4><i style="color: black;" class="fa-solid fa-chart-line"></i> No. of openings: <%=job.noOfOpenings%></h4>
+        <h4 style="color: #9f1842;"><i style="color: #9f1842;" class="fa-solid fa-user"></i> No. of applicants: <%=job.applicants%></h4>
+        <div class="job-skills-container">
+            <%job.skillsRequired.forEach((skill)=>{%>
+                <button><%= skill %></button>
+           <% }) %>
+        </div>
+        <div class="apply-button">
+            <button >Apply</button>
+        </div>
+    </div>
+    <div class="posted-container">
+        <button>Posted On: <%= job.jobPosted%></button>
+    </div>
+  </div>
+</div>

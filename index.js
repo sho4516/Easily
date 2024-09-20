@@ -19,5 +19,6 @@ app.use(ejsLayouts);
 app.get("/", authController.getIndexPage);
 
 app.get("/jobs", jobController.getJobs);
+app.get("/jobs/:id", jobController.getJobById);
 
 export default app;

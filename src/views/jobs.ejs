@@ -3,7 +3,9 @@
   <div class="job-card">
     <div class="company-details">
       <div id="company-hiring-status">
-        <button>Actively Hiring <span><i class="fa-solid fa-chart-line"></i></span></button>
+        <button>
+          Actively Hiring <span><i class="fa-solid fa-chart-line"></i></span>
+        </button>
       </div>
       <div id="company-name">
         <h3><%= job.companyName %></h3>
@@ -26,7 +28,7 @@
         <% }) %>
       </div>
       <div id="view-details">
-        <button>View Details</button>
+        <a class="button" href="/jobs/<%= job.id %>"> View Details</a>
       </div>
     </div>
   </div>
