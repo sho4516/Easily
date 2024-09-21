@@ -19,18 +19,58 @@
         <h4><i style="color: black;" class="fa-solid fa-indian-rupee-sign"></i> <%=job.salary%></h4>
         <h4><i style="color: black;" class="fa-solid fa-hourglass-end"></i> Apply by: <%=job.applyBy%></h4>
         <h4><i style="color: black;" class="fa-solid fa-chart-line"></i> No. of openings: <%=job.noOfOpenings%></h4>
-        <h4 style="color: #9f1842;"><i style="color: #9f1842;" class="fa-solid fa-user"></i> No. of applicants: <%=job.applicants%></h4>
+        <h4 style="color: #9f1842;"><i style="color: #9f1842;" class="fa-solid fa-user"></i> No. of applicants: <%=job.applicants.length%></h4>
         <div class="job-skills-container">
             <%job.skillsRequired.forEach((skill)=>{%>
                 <button><%= skill %></button>
            <% }) %>
         </div>
         <div class="apply-button">
-            <button >Apply</button>
+            <button>Apply</button>
         </div>
     </div>
     <div class="posted-container">
         <button>Posted On: <%= job.jobPosted%></button>
     </div>
   </div>
+
+  <div id="modal-container">
+    <div class="modal-content-container">
+        <div class="modal-header">
+            <h4>easily</h4>
+            <i style="cursor: pointer;" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="modal-content">
+            <div class="modal-form">
+                <h4>Apply in less than 1 minute</h4>
+                <form action="/apply/<%= job.id %>" method="post" enctype="multipart/form-data">
+                    <div class="form-field-container">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="enter your name">
+                    </div>
+                    <div class="form-field-container">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="enter your email">
+                    </div>
+                    <div class="form-field-container">
+                        <label for="contact">Contact</label>
+                        <input type="number" name="contact" id="contact" placeholder="+91_ _ _ _ _ _ _ _ _ _">
+                    </div>
+                    <div class="form-field-container">
+                        <label for="resume">Resume</label>
+                        <input type="file" name="resume" id="resume">
+                    </div>
+                    <button id="submit-button" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="close">Close</button>
+            <button id="save-changes">Save Changes</button>
+        </div>
+    </div>
+  </div>
 </div>
+<% if (typeof jsPage !== 'undefined') { %>
+    <script src="<%= jsPage %>"></script>
+    <% } %>

@@ -35,6 +35,11 @@ export default class JobModel {
     });
     return job;
   }
+
+  static addApplicantForAJob(newApplicant, jobId) {
+    const index = jobs.findIndex((j) => j.id == jobId);
+    jobs[index].applicants.push(newApplicant);
+  }
 }
 
 var jobs = [
@@ -49,7 +54,7 @@ var jobs = [
     ["NodeJs", "React", "MongoDb", "Express"],
     5,
     "today",
-    4
+    []
   ),
   new JobModel(
     2,
@@ -79,12 +84,12 @@ var jobs = [
     ],
     5,
     "today",
-    4
+    []
   ),
   new JobModel(
     3,
     "Tech",
-    "SDE",
+    "Java Developer",
     "Pune",
     "Coding Ninjas",
     "14-18 LPA",
@@ -92,6 +97,6 @@ var jobs = [
     ["NodeJs", "React"],
     5,
     "today",
-    4
+    []
   ),
 ];
