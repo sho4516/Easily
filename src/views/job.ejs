@@ -10,7 +10,17 @@
         <span id="companyName"><%= job.companyName %></span>
       </h1>
     </div>
+    <!-- <div class="loggedIn-details-container">
+
+    </div> -->
     <div class="job-company-name-container">
+        <div class="isLoggedIn-container">
+            <%if(isLoggedIn){%>
+                <button>Actively Recruiting <span><i class="fa-solid fa-chart-line"></i></span></button>
+                <a href="#" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="#" style="color: red;"><i class="fa-regular fa-square-minus"></i></a>
+            <%}%>
+        </div>
         <h3 style="color: #989396;"><%=job.companyName%></h3>
         <h4 style="color: #b7bbb7;"><%=job.jobDesignation%></h3>
     </div>

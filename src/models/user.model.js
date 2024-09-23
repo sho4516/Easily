@@ -21,6 +21,15 @@ export default class UserModel {
     const user = users.find((u) => u.email == email && u.password == password);
     return user;
   }
+
+  static getUserNameByEmail(email) {
+    const user = users.find((j) => j.email == email);
+    if (user) {
+      return user.name;
+    } else {
+      return undefined;
+    }
+  }
 }
 
 var users = [];

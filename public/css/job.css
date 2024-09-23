@@ -60,6 +60,16 @@
   color: #59d0ea;
 }
 
+.isLoggedIn-container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 12px;
+  align-items: center;
+}
+
 .job-company-name-container {
   width: 98%;
   margin-left: auto;
@@ -68,6 +78,16 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.job-company-name-container button {
+  padding: 6px;
+  border: 1px solid #7c5100;
+  color: #7c5100;
+  background-color: #ffc809;
+  border-radius: 5px;
+  width: max-content;
+  user-select: none;
 }
 
 .job-company-name-container h3,

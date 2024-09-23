@@ -7,6 +7,7 @@ export default class AuthController {
       jsPage: "/JS/index.js",
       showLogin: false,
       errorMessage: null,
+      userName: req.session.userName ? req.session.userName : null,
     });
   }
 
@@ -19,12 +20,14 @@ export default class AuthController {
       jsPage: "/JS/index.js",
       showLogin: true,
       errorMessage: null,
+      userName: req.session.userName ? req.session.userName : null,
     });
   }
 
   loginUser(req, res) {
     const { email, password } = req.body;
     const isUserValid = UserModel.validateUser(email, password);
+    const userName = UserModel.getUserNameByEmail(email);
     var errors = [];
     if (!isUserValid) {
       errors.push("Invalid username or password");
@@ -33,9 +36,11 @@ export default class AuthController {
         jsPage: "/JS/index.js",
         showLogin: true,
         errorMessage: errors[0],
+        userName: req.session.userName ? req.session.userName : null,
       });
     } else {
       req.session.userEmail = email;
+      req.session.userName = userName;
       return res.redirect("/jobs");
     }
   }

@@ -39,6 +39,7 @@ export default class JobModel {
   static addApplicantForAJob(newApplicant, jobId) {
     const index = jobs.findIndex((j) => j.id == jobId);
     jobs[index].applicants.push(newApplicant);
+    return this.getJobById(jobId);
   }
 }
 
