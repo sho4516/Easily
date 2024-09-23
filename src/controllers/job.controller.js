@@ -17,11 +17,19 @@ export default class JobController {
   getJobById(req, res) {
     const jobId = req.params.id;
     const job = JobModel.getJobById(jobId);
-    console.log(job);
+    const isLoggedIn = req.session.isLoggedIn || undefined;
     return res.render("job", {
       pageCSS: "/css/job.css",
       job: job,
       jsPage: "/JS/job.js",
+      userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: isLoggedIn,
+    });
+  }
+
+  updateJobById(req, res) {
+    return res.render("updateJob", {
+      pageCSS: "/css/updateJob.css",
       userName: req.session.userName ? req.session.userName : null,
     });
   }

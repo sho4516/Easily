@@ -22,7 +22,6 @@ app.use(
     cookie: { secure: false },
   })
 );
-// app.use(auth);
 
 //set ejs config
 app.set("view engine", "ejs");
@@ -34,8 +33,10 @@ app.get("/", authController.getIndexPage);
 app.post("/register", authController.registerUser);
 app.post("/login", authController.loginUser);
 
+//jobs
 app.get("/jobs", jobController.getJobs);
-app.get("/jobs/:id",auth, jobController.getJobById);
+app.get("/jobs/:id", jobController.getJobById);
+app.get("/jobs/update", jobController.updateJobById);
 
 //apply
 app.post("/apply/:id", uploadResume.single("resume"), jobController.applyJob);

@@ -41,6 +41,7 @@ export default class AuthController {
     } else {
       req.session.userEmail = email;
       req.session.userName = userName;
+      req.session.isLoggedIn = true;
       return res.redirect("/jobs");
     }
   }
