@@ -1,0 +1,137 @@
+<div class="update-job-container">
+  <div class="update-job-form-container">
+    <div class="update-form-heading">
+      <h1>Update Job</h1>
+    </div>
+    <form action="/jobs/<%= job.id %>" method="post" enctype="application/x-www-form-urlencoded">
+      <div class="form-field-container-update">
+        <select id="jobCategory" name="jobCategory">
+          <option value="" disabled selected hidden>
+            Select a new job category
+          </option>
+          <option value="tech" <%= job.jobCategory == "tech" ? 'selected' : '' %>>Tech</option>
+          <option value="nonTech" <%= job.jobCategory == "nonTech" ? 'selected' : '' %> >Non Tech</option>
+        </select>
+      </div>
+      <div class="form-field-container-update">
+        <select id="jobDesignation" name="jobDesignation">
+          <option value="" disabled selected hidden>
+            Select a new job designation
+          </option>
+          <option value="hr" <%= job.jobDesignation == "hr" ? 'selected' : '' %> >HR</option>
+          <option value="sde" <%= job.jobDesignation == "sde" ? 'selected' : '' %>>SDE</option>
+          <option value="devops" <%= job.jobDesignation == "devops" ? 'selected' : '' %>>Devops</option>
+          <option value="mernDeveloper" <%= job.jobDesignation == "mernDeveloper" ? 'selected' : '' %>>MERN Developer</option>
+          <option value="meanDeveloper" <%= job.jobDesignation == "meanDeveloper" ? 'selected' : '' %>>Mean Developer</option>
+          <option value="javaDeveloper" <%= job.jobDesignation == "javaDeveloper" ? 'selected' : '' %>>Java Developer</option>
+          <option value="frontEndDeveloper" <%= job.jobDesignation == "frontEndDeveloper" ? 'selected' : '' %>>FrontEnd Developer</option>
+          <option value="backEndDeveloper" <%= job.jobDesignation == "backEndDeveloper" ? 'selected' : '' %>>BackEnd Developer</option>
+          <option value="fullStackDeveloper" <%= job.jobDesignation == "fullStackDeveloper" ? 'selected' : '' %>>FullStack Developer</option>
+        </select>
+      </div>
+      <div class="form-field-container-update">
+        <label for="jobLocation">Job Location</label>
+        <input
+          type="text"
+          name="jobLocation"
+          id="jobLocation"
+          placeholder="enter job location"
+          value="<%= job.jobLocation %>"
+        />
+      </div>
+      <div class="form-field-container-update">
+        <label for="companyName">Company Name</label>
+        <input
+          type="text"
+          name="companyName"
+          id="companyName"
+          placeholder="enter company name"
+          value="<%= job.companyName %>"
+        />
+      </div>
+      <div class="form-field-container-update">
+        <label for="salary">Salary</label>
+        <input
+          type="text"
+          name="salary"
+          id="salary"
+          placeholder="enter salary"
+          value="<%= job.salary %>"
+        />
+        <label for="noOfOpenings">Total Positions</label>
+        <input
+          type="number"
+          name="noOfOpenings"
+          id="noOfOpenings"
+          placeholder="enter total open positions"
+          value="<%= job.noOfOpenings %>"
+        />
+      </div>
+      <div class="form-field-container-update">
+        <div class="skills-container">
+          <h7
+            style="background-color: lightgray; position: relative; width: 100%"
+            >Select skills required for this job</h7
+          >
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="Java" <%= job.skillsRequired.includes("Java") ? "checked" : "" %>/>
+            <div>Java</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="NodeJS" <%= job.skillsRequired.includes("NodeJS") ? "checked" : "" %>/>
+            <div>NodeJS</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="React" <%= job.skillsRequired.includes("React") ? "checked" : "" %> />
+            <div>React</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="MongoDB" <%= job.skillsRequired.includes("MongoDB") ? "checked" : "" %>/>
+            <div>MongoDB</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="SQL" <%= job.skillsRequired.includes("SQL") ? "checked" : "" %>/>
+            <div>SQL</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="PHP" <%= job.skillsRequired.includes("PHP") ? "checked" : "" %>/>
+            <div>PHP</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="HTML" <%= job.skillsRequired.includes("HTML") ? "checked" : "" %>/>
+            <div>HTML</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="AWS" <%= job.skillsRequired.includes("AWS") ? "checked" : "" %>/>
+            <div>AWS</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="CSS" <%= job.skillsRequired.includes("CSS") ? "checked" : "" %>/>
+            <div>CSS</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="Javascript" <%= job.skillsRequired.includes("Javascript") ? "checked" : "" %>/>
+            <div>Javascript</div>
+          </div>
+          <div>
+            <input type="checkbox" name="skillsRequired[]" value="Express" <%= job.skillsRequired.includes("Express") ? "checked" : "" %>/>
+            <div>Express</div>
+          </div>
+        </div>
+        <label
+          style="
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          "
+          for="applyBy"
+          >Apply By</label
+        >
+        <input type="date" name="applyBy" id="applyBy" placeholder="dd-mm-yy" value="<%= job.applyBy %>"/>
+      </div>
+      <div class="form-field-container-update">
+        <button type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

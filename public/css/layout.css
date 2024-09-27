@@ -267,7 +267,7 @@ form {
   color: #5c5c5d;
 }
 
-.form-field-container input {
+.form-field-container > input {
   position: relative;
   width: 100%;
   padding: 8px;

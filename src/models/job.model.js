@@ -36,6 +36,18 @@ export default class JobModel {
     return job;
   }
 
+  static updateJobById(id, job) {
+    const index = jobs.findIndex((j) => j.id == id);
+    jobs[index].jobCategory = job.jobCategory;
+    jobs[index].jobDesignation = job.jobDesignation;
+    jobs[index].jobLocation = job.jobLocation;
+    jobs[index].companyName = job.companyName;
+    jobs[index].salary = job.salary;
+    jobs[index].noOfOpenings = job.noOfOpenings;
+    jobs[index].applyBy = job.applyBy;
+    jobs[index].skillsRequired = job.skillsRequired;
+  }
+
   static addApplicantForAJob(newApplicant, jobId) {
     const index = jobs.findIndex((j) => j.id == jobId);
     jobs[index].applicants.push(newApplicant);
@@ -46,58 +58,41 @@ export default class JobModel {
 var jobs = [
   new JobModel(
     1,
-    "IT",
-    "SDE",
+    "tech",
+    "mernDeveloper",
     "Pune",
     "Coding Ninjas",
     "14-18 LPA",
-    "2 Oct",
-    ["NodeJs", "React", "MongoDb", "Express"],
+    "2024-09-30",
+    ["NodeJS", "React", "MongoDB", "Express"],
     5,
-    "today",
+    new Date().toLocaleString(),
     []
   ),
   new JobModel(
     2,
-    "Tech",
-    "SDE",
+    "tech",
+    "sde",
     "Pune",
     "Coding Ninjas",
     "14-18 LPA",
-    "2 Oct",
-    [
-      "NodeJs",
-      "React",
-      "MongoDb",
-      "Express",
-      "NodeJs",
-      "React",
-      "MongoDb",
-      "Express",
-      "NodeJs",
-      "React",
-      "MongoDb",
-      "Express",
-      "NodeJs",
-      "React",
-      "MongoDb",
-      "Express",
-    ],
+    "2024-09-30",
+    ["NodeJS", "React", "MongoDB", "Express"],
     5,
-    "today",
+    new Date().toLocaleString(),
     []
   ),
   new JobModel(
     3,
-    "Tech",
-    "Java Developer",
+    "nonTech",
+    "mernDeveloper",
     "Pune",
     "Coding Ninjas",
     "14-18 LPA",
-    "2 Oct",
-    ["NodeJs", "React"],
+    "2024-09-30",
+    ["NodeJS", "React", "AWS", "SQL"],
     5,
-    "today",
+    new Date().toLocaleString(),
     []
   ),
 ];
