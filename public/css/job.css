@@ -160,6 +160,10 @@
   border: 1px solid #81b0c1;
 }
 
+#applicants-link{
+  text-decoration: none;
+}
+
 /* #modal-container {
   display: none;
   position: fixed;

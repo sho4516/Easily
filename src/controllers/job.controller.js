@@ -54,7 +54,7 @@ export default class JobController {
   updateJobById(req, res) {
     const id = req.params.id;
     JobModel.updateJobById(id, req.body);
-    return res.redirect("/jobs/"+id);
+    return res.redirect("/jobs/" + id);
   }
 
   async applyJob(req, res) {
@@ -76,5 +76,15 @@ export default class JobController {
     }
     req.session.emailSent = emailSent;
     return res.redirect("/jobs");
+  }
+
+  getApplicantsByJobId(req, res) {
+    const jobId = req.params.id;
+    const applicants = JobModel.getApplicantsByJobId(jobId);
+    return res.render("applicants", {
+      pageCSS: "/css/applicants.css",
+      userName: req.session.userName ? req.session.userName : null,
+      applicants: applicants,
+    });
   }
 }

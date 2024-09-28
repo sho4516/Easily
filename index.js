@@ -5,6 +5,7 @@ import AuthController from "./src/controllers/auth.controller.js";
 import JobController from "./src/controllers/job.controller.js";
 import { uploadResume } from "./src/middlewares/fileUpload.middleware.js";
 import session from "express-session";
+import { auth } from "./src/middlewares/auth.middleware.js";
 
 const authController = new AuthController();
 const jobController = new JobController();
@@ -36,9 +37,15 @@ app.post("/login", authController.loginUser);
 app.get("/jobs", jobController.getJobs);
 app.get("/jobs/update/:id", jobController.getUpdateJobPage);
 app.get("/jobs/:id", jobController.getJobById);
-app.post("/jobs/:id", jobController.updateJobById);
+app.post("/jobs/:id", auth, jobController.updateJobById);
 
 //apply
 app.post("/apply/:id", uploadResume.single("resume"), jobController.applyJob);
+
+//error
+app.get("/404", authController.getErrorPage);
+
+//applicants
+app.get("/jobs/:id/applicants", auth, jobController.getApplicantsByJobId);
 
 export default app;

@@ -45,4 +45,11 @@ export default class AuthController {
       return res.redirect("/jobs");
     }
   }
+
+  getErrorPage(req, res) {
+    return res.render("404", {
+      pageCSS: "/css/404.css",
+      userName: req.session.userName ? req.session.userName : null,
+    });
+  }
 }

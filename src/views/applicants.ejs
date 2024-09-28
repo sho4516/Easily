@@ -1,0 +1,42 @@
+<div class="table-container">
+  <h1>Applicants Details</h1>
+  <table class="styled-table applicants-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Resume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% applicants.forEach((applicant) => { %>
+      <tr>
+        <td class="index"></td>
+        <td><%= applicant.name %></td>
+        <td><%= applicant.email %></td>
+        <td><%= applicant.contact %></td>
+        <td>
+          <a
+            class="view-resume-button"
+            href="/<%= applicant.resumePath %>"
+            target="_blank"
+          >
+            <button type="button">View Resume</button>
+          </a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  window.onload = function () {
+    const rows = document.querySelectorAll(".applicants-table tbody tr");
+    rows.forEach((row, index) => {
+      row.querySelector(".index").textContent = index + 1;
+    });
+  };
+</script>
