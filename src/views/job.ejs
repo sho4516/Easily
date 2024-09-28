@@ -15,7 +15,7 @@
             <%if(isLoggedIn){%>
                 <button>Actively Recruiting <span><i class="fa-solid fa-chart-line"></i></span></button>
                 <a href="/jobs/update/<%= job.id %>" style="color: blue;"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="#" style="color: red;"><i class="fa-regular fa-square-minus"></i></a>
+                <a id="deleteButton" data-id="<%= job.id %>" style="color: red; cursor: pointer;"><i class="fa-regular fa-square-minus"></i></a>
             <%}%>
         </div>
         <h3 style="color: #989396;"><%=job.companyName%></h3>

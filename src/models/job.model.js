@@ -48,6 +48,15 @@ export default class JobModel {
     jobs[index].skillsRequired = job.skillsRequired;
   }
 
+  static deleteJobById(id) {
+    const index = jobs.findIndex((j) => j.id == id);
+    if (index != null) {
+      jobs.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
   static addApplicantForAJob(newApplicant, jobId) {
     const index = jobs.findIndex((j) => j.id == jobId);
     jobs[index].applicants.push(newApplicant);

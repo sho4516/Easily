@@ -38,6 +38,7 @@ app.get("/jobs", jobController.getJobs);
 app.get("/jobs/update/:id", jobController.getUpdateJobPage);
 app.get("/jobs/:id", jobController.getJobById);
 app.post("/jobs/:id", auth, jobController.updateJobById);
+app.delete("/jobs/:id", jobController.deleteJobById);
 
 //apply
 app.post("/apply/:id", uploadResume.single("resume"), jobController.applyJob);

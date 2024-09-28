@@ -51,6 +51,16 @@ export default class JobController {
     });
   }
 
+  deleteJobById(req, res) {
+    const jobId = req.params.id;
+    const deleted = JobModel.deleteJobById(jobId); // Assuming this deletes the job
+    if (deleted) {
+      return res.status(200).json({ message: "Job deleted successfully!" });
+    } else {
+      return res.status(404).json({ message: "Job not found!" });
+    }
+  }
+
   updateJobById(req, res) {
     const id = req.params.id;
     JobModel.updateJobById(id, req.body);
