@@ -40,24 +40,86 @@
 }
 
 .nav-items ul {
+  /* position: relative; */
   list-style: none;
 }
 
-.nav-items li {
+.nav-items > ul > li {
+  position: relative;
   display: inline-block;
   padding: 10px;
   font-size: 1.2rem;
 }
 
-.nav-items a {
+.nav-items > ul > li > a {
   text-decoration: none;
   color: white;
   transition: color 0.4s ease-in-out;
 }
 
-.nav-items a:hover {
+.nav-items > ul > li > a:hover {
   color: #fc3696;
   transition: color 0.4s ease-in-out;
+}
+
+.list-modal {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  margin-top: 12px;
+  border-radius: 6px;
+  transform: scale(0);
+  transition: all 0.5s ease-in-out;
+}
+
+.list-modal.active {
+  position: absolute;
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.list-modal ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-modal ul > a > li {
+  position: relative;
+  padding: 6px;
+  border-bottom: 1px solid lightgray;
+  padding-right: 48px;
+  transition: all 0.5s ease-in-out;
+}
+
+.list-modal > ul > a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.list-modal > ul > a:nth-of-type(1) {
+  li {
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+.list-modal > ul > a:last-of-type {
+  li {
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+.list-modal ul li:hover {
+  background-color: lightgray;
+  transition: all 0.5s ease-in-out;
+}
+
+.list-modal > ul > a:last-of-type {
+  li {
+    border-bottom: none;
+  }
 }
 
 .search {
@@ -299,7 +361,7 @@ form {
   transition: all 0.5s ease-in-out;
 }
 
-.error-box{
+.error-box {
   position: relative;
   width: 80%;
   height: auto;
@@ -310,7 +372,7 @@ form {
   justify-content: flex-start;
 }
 
-.error-box h4{
+.error-box h4 {
   color: #e9868f;
   font-size: small;
 }

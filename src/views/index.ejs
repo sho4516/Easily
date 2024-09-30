@@ -4,16 +4,20 @@
     <h2>job opportunities and internships</h2>
     <h4>Get discovered. Get hired.</h4>
     <div class="button-container">
-      <button>I'm a job seeker</button>
+      <a href="/jobs"><button>I'm a job seeker</button></a>
+      <% if(!isLoggedIn) { %>
       <button id="recruiter">I'm a recruiter</button>
+      <% } %>
     </div>
   </div>
   <!-- Conditionally render the modal based on the showLogin flag -->
   <div
     id="modal-container"
-    style="display: <% if(showLogin) { %> block <% } else { %> none <% } %>;"
+    style="display: <% if(showLogin || showRegister) { %> block <% } else { %> none <% } %>;"
   >
-    <div class="modal-content-container <%= showLogin ? 'active' : '' %>">
+    <div
+      class="modal-content-container <%= (showLogin || showRegister) ? 'active' : '' %>"
+    >
       <div class="modal-header">
         <h4>Experience easily</h4>
         <i style="cursor: pointer" class="fa-solid fa-xmark"></i>
@@ -26,7 +30,7 @@
           </div>
           <% } %>
           <!-- Conditional Login/Register form based on showLogin -->
-          <% if(!showLogin) { %>
+          <% if(showRegister) { %>
           <form action="/register" method="post">
             <h4>Register now!!</h4>
             <div class="form-field-container">
@@ -58,6 +62,11 @@
             </div>
             <button id="submit-button" type="submit">Register</button>
           </form>
+          <a style="text-decoration: none" href="/login"
+            ><p id="toggle-login" style="cursor: pointer; color: blue">
+              Already have an account? Login
+            </p></a
+          >
           <% } else { %>
           <form action="/login" method="post">
             <h4>Login</h4>
@@ -81,6 +90,11 @@
             </div>
             <button id="submit-button" type="submit">Login</button>
           </form>
+          <a style="text-decoration: none" href="/register"
+            ><p id="toggle-login" style="cursor: pointer; color: blue">
+              Dont have an account? Register
+            </p></a
+          >
           <% } %>
         </div>
       </div>

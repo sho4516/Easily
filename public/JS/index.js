@@ -2,6 +2,10 @@ const submitButton = document.querySelector("#submit-button");
 const modalContainer = document.querySelector("#modal-container");
 const recruiterButton = document.querySelector("#recruiter");
 const xButton = document.querySelector(".modal-header i");
+const modalContentContainer = document.querySelector(
+  ".modal-content-container"
+);
+const toggleLoginButton = document.querySelector("#toggle-login");
 
 Object.assign(submitButton.style, {
   width: "max-content",
@@ -27,6 +31,7 @@ submitButton.addEventListener("mouseleave", () => {
 
 recruiterButton.addEventListener("click", () => {
   modalContainer.style.display = "block";
+  modalContentContainer.classList.add("active");
   setTimeout(() => {
     showModal();
   }, 10);
@@ -48,6 +53,18 @@ window.addEventListener("click", (event) => {
     }, 500);
   }
 });
+
+// Ensure these buttons exist before adding event listeners
+if (toggleLoginButton) {
+  toggleLoginButton.addEventListener("click", () => {
+    // Set showLogin to true
+    showLogin = true; // Update this to your app's state management if needed
+    modalContainer.style.display = "block";
+    setTimeout(() => {
+      showModal();
+    }, 10);
+  });
+}
 
 function hideModal() {
   const modal = document.querySelector(".modal-content-container");

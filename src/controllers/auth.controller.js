@@ -6,8 +6,34 @@ export default class AuthController {
       pageCSS: "/css/index.css",
       jsPage: "/JS/index.js",
       showLogin: false,
+      showRegister: false,
       errorMessage: null,
       userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
+    });
+  }
+
+  getLoginPage(req, res) {
+    return res.render("index", {
+      pageCSS: "/css/index.css",
+      jsPage: "/JS/index.js",
+      showLogin: true,
+      showRegister: false,
+      errorMessage: null,
+      userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
+    });
+  }
+
+  getRegisterPage(req, res) {
+    return res.render("index", {
+      pageCSS: "/css/index.css",
+      jsPage: "/JS/index.js",
+      showLogin: false,
+      showRegister: true,
+      errorMessage: null,
+      userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
     });
   }
 
@@ -19,8 +45,10 @@ export default class AuthController {
       pageCSS: "/css/index.css",
       jsPage: "/JS/index.js",
       showLogin: true,
+      showRegister: false,
       errorMessage: null,
       userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
     });
   }
 
@@ -35,13 +63,16 @@ export default class AuthController {
         pageCSS: "/css/index.css",
         jsPage: "/JS/index.js",
         showLogin: true,
+        showRegister: false,
         errorMessage: errors[0],
         userName: req.session.userName ? req.session.userName : null,
+        isLoggedIn: req.session.isLoggedIn ? true : false,
       });
     } else {
       req.session.userEmail = email;
       req.session.userName = userName;
       req.session.isLoggedIn = true;
+      req.session.recruiterId = UserModel.getUserId(email, password);
       return res.redirect("/jobs");
     }
   }
@@ -50,6 +81,16 @@ export default class AuthController {
     return res.render("404", {
       pageCSS: "/css/404.css",
       userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
+    });
+  }
+
+  logout(req, res) {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).send("Could not log out. Please try again.");
+      }
+      res.redirect("/"); // Redirect to login or home page
     });
   }
 }

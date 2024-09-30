@@ -22,6 +22,7 @@ export default class JobController {
       pageCSS: "/css/jobs.css",
       userName: req.session.userName ? req.session.userName : null,
       emailSent: emailSent,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
     });
   }
 
@@ -48,6 +49,18 @@ export default class JobController {
       pageCSS: "/css/updateJob.css",
       userName: req.session.userName ? req.session.userName : null,
       job: job,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
+      isEdit: true,
+    });
+  }
+
+  getNewJobPage(req, res) {
+    return res.render("updateJob", {
+      pageCSS: "/css/updateJob.css",
+      userName: req.session.userName ? req.session.userName : null,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
+      isEdit: false,
+      job: null,
     });
   }
 
@@ -65,6 +78,13 @@ export default class JobController {
     const id = req.params.id;
     JobModel.updateJobById(id, req.body);
     return res.redirect("/jobs/" + id);
+  }
+
+  postANewJob(req, res) {
+    const job = req.body;
+    const recruiterId = req.session.recruiterId;
+    JobModel.addANewJob(job, recruiterId);
+    return res.redirect("/jobs");
   }
 
   async applyJob(req, res) {
@@ -95,6 +115,7 @@ export default class JobController {
       pageCSS: "/css/applicants.css",
       userName: req.session.userName ? req.session.userName : null,
       applicants: applicants,
+      isLoggedIn: req.session.isLoggedIn ? true : false,
     });
   }
 }

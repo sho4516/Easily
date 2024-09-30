@@ -10,7 +10,8 @@ export default class JobModel {
     skillsRequired,
     noOfOpenings,
     jobPosted,
-    applicants
+    applicants,
+    recruiterId
   ) {
     this.id = id;
     this.jobCategory = jobCategory;
@@ -23,6 +24,7 @@ export default class JobModel {
     this.noOfOpenings = noOfOpenings;
     this.jobPosted = jobPosted;
     this.applicants = applicants;
+    this.recruiterId = recruiterId;
   }
 
   static getJobs() {
@@ -34,6 +36,25 @@ export default class JobModel {
       return j.id == Number(id);
     });
     return job;
+  }
+
+  static addANewJob(job, recruiterId) {
+    const newJob = new JobModel(
+      jobs.length + 1,
+      job.jobCategory,
+      job.jobDesignation,
+      job.jobLocation,
+      job.companyName,
+      job.salary,
+      job.applyBy,
+      job.skillsRequired,
+      job.noOfOpenings,
+      new Date().toLocaleString(),
+      [],
+      recruiterId
+    );
+
+    jobs.push(newJob);
   }
 
   static updateJobById(id, job) {
@@ -81,7 +102,8 @@ var jobs = [
     ["NodeJS", "React", "MongoDB", "Express"],
     5,
     new Date().toLocaleString(),
-    []
+    [],
+    2
   ),
   new JobModel(
     2,
@@ -94,7 +116,8 @@ var jobs = [
     ["NodeJS", "React", "MongoDB", "Express"],
     5,
     new Date().toLocaleString(),
-    []
+    [],
+    2
   ),
   new JobModel(
     3,
@@ -107,6 +130,7 @@ var jobs = [
     ["NodeJS", "React", "AWS", "SQL"],
     5,
     new Date().toLocaleString(),
-    []
+    [],
+    2
   ),
 ];

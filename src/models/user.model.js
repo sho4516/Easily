@@ -30,6 +30,11 @@ export default class UserModel {
       return undefined;
     }
   }
+
+  static getUserId(email, pass) {
+    const user = users.find((u) => u.email == email && u.password == pass);
+    return user.id;
+  }
 }
 
 var users = [];
