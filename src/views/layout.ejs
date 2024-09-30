@@ -18,10 +18,44 @@
       <nav class="navbar">
         <div class="nav-items">
           <ul>
-            <li><a class="brand-name" href="#">easily</a></li>
+            <li><a class="brand-name" href="/">easily</a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/jobs">Jobs</a></li>
-            <li><a href="#">Recruiter</a></li>
+            <li><%if(userName){%>
+              <a class="recruiter" href="#">Hello <%= userName %> ! <i class="fa-solid fa-caret-down"></i></a>
+              <div class="list-modal">
+                <ul>
+                  <a href="/jobs/new">
+                    <li>
+                      Add new Job
+                    </li>
+                  </a>
+                  <a href="/logout">
+                    <li>
+                      Logout
+                    </li>
+                  </a>
+                </ul>
+              </div>
+            </li>
+            <%} else {%>
+              <a class="recruiter" href="#">Recruiter <i class="fa-solid fa-caret-down"></i></a>
+              <div class="list-modal">
+                <ul>
+                  <a href="/login">
+                    <li>
+                      Login
+                    </li>
+                  </a>
+                  <a class="register" href="/register">
+                    <li>
+                      Register
+                    </li>
+                  </a>
+                </ul>
+              </div>
+            </li>
+            <%}%>
           </ul>
         </div>
         <div class="search">
@@ -31,5 +65,38 @@
       </nav>
     </header>
     <div class="container"><%-body%></div>
+
+    <script>
+      const listModal = document.querySelector(".list-modal");
+      const recruiter = document.querySelector(".recruiter");
+
+      recruiter.addEventListener("click", () => {
+        toggleListModal();
+      });
+
+      function toggleListModal() {
+        if (listModal.classList.contains("active")) {
+          hideListModal();
+        } else {
+        showListModal();
+      }
+    }
+
+      function showListModal(){
+        listModal.classList.add("active");
+      }
+
+      function hideListModal(){
+        listModal.classList.remove("active");
+      }
+
+      document.addEventListener("click", (event) => {
+      // If click is outside the modal and not on the recruiter button
+        if (!listModal.contains(event.target) && !recruiter.contains(event.target)) {
+          hideListModal();
+        }
+      });
+
+    </script>
   </body>
 </html>

@@ -4,8 +4,107 @@
     <h2>job opportunities and internships</h2>
     <h4>Get discovered. Get hired.</h4>
     <div class="button-container">
-      <button>I'm a job seeker</button>
-      <button>I'm a recruiter</button>
+      <a href="/jobs"><button>I'm a job seeker</button></a>
+      <% if(!isLoggedIn) { %>
+      <button id="recruiter">I'm a recruiter</button>
+      <% } %>
+    </div>
+  </div>
+  <!-- Conditionally render the modal based on the showLogin flag -->
+  <div
+    id="modal-container"
+    style="display: <% if(showLogin || showRegister) { %> block <% } else { %> none <% } %>;"
+  >
+    <div
+      class="modal-content-container <%= (showLogin || showRegister) ? 'active' : '' %>"
+    >
+      <div class="modal-header">
+        <h4>Experience easily</h4>
+        <i style="cursor: pointer" class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="modal-content">
+        <div class="modal-form">
+          <% if(errorMessage) { %>
+          <div class="error-box">
+            <h4><%= errorMessage %></h4>
+          </div>
+          <% } %>
+          <!-- Conditional Login/Register form based on showLogin -->
+          <% if(showRegister) { %>
+          <form action="/register" method="post">
+            <h4>Register now!!</h4>
+            <div class="form-field-container">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="enter your name"
+              />
+            </div>
+            <div class="form-field-container">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="enter your email"
+              />
+            </div>
+            <div class="form-field-container">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="enter password"
+              />
+            </div>
+            <button id="submit-button" type="submit">Register</button>
+          </form>
+          <a style="text-decoration: none" href="/login"
+            ><p id="toggle-login" style="cursor: pointer; color: blue">
+              Already have an account? Login
+            </p></a
+          >
+          <% } else { %>
+          <form action="/login" method="post">
+            <h4>Login</h4>
+            <div class="form-field-container">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="enter your email"
+              />
+            </div>
+            <div class="form-field-container">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="enter password"
+              />
+            </div>
+            <button id="submit-button" type="submit">Login</button>
+          </form>
+          <a style="text-decoration: none" href="/register"
+            ><p id="toggle-login" style="cursor: pointer; color: blue">
+              Dont have an account? Register
+            </p></a
+          >
+          <% } %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="close">Close</button>
+        <button id="save-changes">Save Changes</button>
+      </div>
     </div>
   </div>
 </div>
+<% if (typeof jsPage !== 'undefined') { %>
+<script src="<%= jsPage %>"></script>
+<% } %>

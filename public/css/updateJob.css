@@ -1,0 +1,161 @@
+.update-job-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.update-job-form-container {
+  position: relative;
+  width: 60%;
+  height: max-content;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding-bottom: 1rem;
+  box-shadow: 0px 0px 15px 3px rgba(130, 130, 130, 1);
+  background-color: #ffffff;
+}
+
+.update-form-heading {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+}
+
+.update-form-heading h1 {
+  font-size: xx-large;
+  font-weight: normal;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  width: 90%;
+}
+
+.form-field-container-update {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
+  /* justify-content: center; */
+}
+
+.form-field-container-update select {
+  position: relative;
+  width: 100%;
+  padding: 0.4rem;
+  padding-right: 0px;
+  font-size: larger;
+  border-radius: 6px;
+  border-color: lightgray;
+}
+
+.form-field-container-update select:hover {
+  border-color: black;
+}
+
+.form-field-container-update select option[disabled] {
+  color: lightgray;
+}
+
+.form-field-container-update label {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.4rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px 0 0 5px;
+  background-color: #f0f0f0;
+  color: #5c5c5d;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+}
+
+.form-field-container-update input {
+  position: relative;
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #f0f0f0;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  font-size: larger;
+}
+
+.form-field-container-update input:focus,
+.form-field-container-update label:focus {
+  outline: none;
+}
+
+.skills-container {
+  position: relative;
+  width: 40%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  font-size: larger;
+  border-right: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.skills-container div {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding-left: 8px;
+  width: 100%;
+}
+
+.skills-container div:hover {
+  background-color: lightgray;
+}
+
+.skills-container input {
+  cursor: pointer;
+}
+
+.form-field-container-update button {
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  font-size: large;
+  background-color: #176e48;
+  border: none;
+  border-radius: 5px;
+  color: wheat;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.form-field-container-update button:hover {
+  background-color: #0d5737;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
