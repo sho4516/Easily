@@ -7,6 +7,11 @@ import { uploadResume } from "./src/middlewares/fileUpload.middleware.js";
 import session from "express-session";
 import { auth } from "./src/middlewares/auth.middleware.js";
 import { ownership } from "./src/middlewares/ownership.middleware.js";
+import {
+  loginValidation,
+  registerValidation,
+  applyValidation,
+} from "./src/middlewares/validation.middleware.js";
 
 const authController = new AuthController();
 const jobController = new JobController();
@@ -34,8 +39,8 @@ app.get("/", authController.getIndexPage);
 app.get("/login", authController.getLoginPage);
 app.get("/register", authController.getRegisterPage);
 app.get("/logout", authController.logout);
-app.post("/register", authController.registerUser);
-app.post("/login", authController.loginUser);
+app.post("/register", registerValidation, authController.registerUser);
+app.post("/login", loginValidation, authController.loginUser);
 
 //jobs
 app.get("/jobs", jobController.getJobs);
@@ -47,7 +52,12 @@ app.post("/jobs/:id", auth, jobController.updateJobById);
 app.delete("/jobs/:id", auth, ownership, jobController.deleteJobById);
 
 //apply
-app.post("/apply/:id", uploadResume.single("resume"), jobController.applyJob);
+app.post(
+  "/apply/:id",
+  uploadResume.single("resume"),
+  applyValidation,
+  jobController.applyJob
+);
 
 //error
 app.get("/404", authController.getErrorPage);

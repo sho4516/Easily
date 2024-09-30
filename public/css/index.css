@@ -113,6 +113,17 @@ button:hover {
   z-index: 999;
 }
 
+.heading-box marquee {
+  font-size: 2rem; /* Fluid font size */
+  color: white;
+  font-weight: 500;
+  padding-bottom: 4px;
+  opacity: 1;
+  animation: textAnimationColorChange 0.5s infinite ease-in-out;
+  animation-direction: alternate;
+  z-index: 999;
+}
+
 @keyframes textAnimationColorChange {
   0% {
     color: white;
@@ -130,7 +141,7 @@ button:hover {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 }
 

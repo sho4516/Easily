@@ -41,14 +41,19 @@
     </div>
   </div>
 
-  <div id="modal-container">
-    <div class="modal-content-container">
+  <div id="modal-container" style="display: <%= showApplicationModel ? 'block' : 'none' %>;">
+    <div class="modal-content-container <%= showApplicationModel ? 'active' : '' %>">
         <div class="modal-header">
             <h4>easily</h4>
             <i style="cursor: pointer;" class="fa-solid fa-xmark"></i>
         </div>
         <div class="modal-content">
             <div class="modal-form">
+                <% if(errorMessage) { %>
+                    <div class="error-box">
+                      <h4><%= errorMessage %></h4>
+                    </div>
+                    <% } %>
                 <h4>Apply in less than 1 minute</h4>
                 <form action="/apply/<%= job.id %>" method="post" enctype="multipart/form-data">
                     <div class="form-field-container">

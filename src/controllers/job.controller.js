@@ -39,6 +39,8 @@ export default class JobController {
       jsPage: "/JS/job.js",
       userName: req.session.userName ? req.session.userName : null,
       isLoggedIn: isLoggedIn,
+      errorMessage: null,
+      showApplicationModel: false
     });
   }
 
